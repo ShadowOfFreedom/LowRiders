@@ -1,11 +1,35 @@
-public class GameManager {
-    public readonly PlayerInput input = new();
+using _Code;
+using _Code.CarLogic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
+public class GameManager : MonoBehaviour{
     static GameManager instance;
+    public static GameManager Instance => instance;
 
-    public static GameManager Instance => instance ??= new GameManager();
+    public PlayerInput input;
+    DefaultInputActions uiInput;
 
-    GameManager() => Init();
+    [SerializeField] Cars cars;
+    [SerializeField] Tracks tracks;
 
-    void Init() => input.Player.Enable();
+    void Awake(){
+        if (instance == null)
+            instance = this;
+        input ??= new PlayerInput();
+        uiInput ??= new DefaultInputActions();
+        DontDestroyOnLoad(this);
+    }
+
+    public void InitInput(){
+        input.Player.Enable();
+    }
+
+    public void StartNewGame(int carIndex, int trackIndex){
+        Player.Instance.selectedCar = cars.carsDictionary[carIndex];
+        var selectedTrack = tracks.tracksDictionary[trackIndex];
+
+        SceneManager.LoadScene(selectedTrack.name, LoadSceneMode.Single);
+    }
 }

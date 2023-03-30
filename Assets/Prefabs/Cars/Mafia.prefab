@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 9089371022861042894}
   - component: {fileID: 7021924871719022485}
   - component: {fileID: 2841256978326932902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mafia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431569542896180305}
   serializedVersion: 4
-  m_Mass: 300
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -300,7 +300,7 @@ MonoBehaviour:
   - {fileID: 8545699880874712557}
   centerOfMass: {fileID: 1494168793733393521}
   motorTorque: 1500
-  maxAngle: 25
+  maxAngle: 20
   rb: {fileID: 7021924871719022485}
 --- !u!1 &2142876413111444504
 GameObject:
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 4072133166126628616}
   - component: {fileID: 3977906650115858813}
   - component: {fileID: 8545699880874712557}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WheelBackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,21 +468,21 @@ WheelCollider:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.2
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 40
-  m_WheelDampingRate: 0.15
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.7
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 4
+    m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.8
+    m_ExtremumValue: 1.4
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 1.2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 5977982320389870394}
   - component: {fileID: 7365662411271205526}
   - component: {fileID: 3126679179355222880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WheelFrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,21 +557,21 @@ WheelCollider:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.2
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 40
-  m_WheelDampingRate: 0.15
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.7
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 6
+    m_ExtremumValue: 8
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 4
+    m_ExtremumValue: 8
+    m_AsymptoteSlip: 2
+    m_AsymptoteValue: 4
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 3198694152294991315}
   - component: {fileID: 4901374302848814561}
   - component: {fileID: 7026238087039611904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456002461962127613}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 57fb6bc454b08f049b23007405711bf3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -744,7 +744,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456002461962127613}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 57fb6bc454b08f049b23007405711bf3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -765,7 +765,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456002461962127613}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 57fb6bc454b08f049b23007405711bf3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -788,7 +788,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6456002461962127613}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 57fb6bc454b08f049b23007405711bf3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 8174219286270926323}
   - component: {fileID: 3348683151381545011}
   - component: {fileID: 2694789686176952679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WheelBackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,21 +852,21 @@ WheelCollider:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.2
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 40
-  m_WheelDampingRate: 0.15
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.7
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 4
+    m_ExtremumValue: 6
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 0.8
+    m_ExtremumValue: 1.4
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 1.2
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7187934109192925966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.196, z: 0}
+  m_LocalPosition: {x: 0, y: 0.196, z: -0.595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 8026129227719746691}
   - component: {fileID: 7447632143115144004}
   - component: {fileID: 397865080765356350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WheelFrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,21 +972,21 @@ WheelCollider:
     spring: 35000
     damper: 4500
     targetPosition: 0.5
-  m_SuspensionDistance: 0.2
+  m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 40
-  m_WheelDampingRate: 0.15
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.7
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 6
+    m_ExtremumValue: 8
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
+    m_ExtremumSlip: 4
+    m_ExtremumValue: 8
+    m_AsymptoteSlip: 2
+    m_AsymptoteValue: 4
     m_Stiffness: 1
   m_IncludeLayers:
     serializedVersion: 2

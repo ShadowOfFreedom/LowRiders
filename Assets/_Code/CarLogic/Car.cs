@@ -14,6 +14,7 @@ public class Car : MonoBehaviour{
     void Awake(){
         gameManager = GameManager.Instance;
         input = gameManager.input;
+        gameManager.InitInput();
         rb.centerOfMass = centerOfMass.localPosition;
     }
 
