@@ -10,11 +10,14 @@ namespace _Code.CarLogic{
 
         public float SteerAngle { get; set; }
         public float Acceleration { get; set; }
+        public float speed;
+
 
         void Update(){
             wheelCollider.GetWorldPose(out var pos, out var rot);
             wheelTransform.position = pos;
             wheelTransform.rotation = rot;
+            speed = 2f * 3.14f * wheelCollider.radius * wheelCollider.rpm * 60f;
         }
 
         void FixedUpdate(){

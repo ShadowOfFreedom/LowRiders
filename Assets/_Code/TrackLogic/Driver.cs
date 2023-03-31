@@ -1,34 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using TMPro;
+using System.Collections;
+using _Code.UiLogic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Code.TrackLogic{
     public class Driver : MonoBehaviour{
-        [Header("Lap times")]
-        [SerializeField] float bestLapTime = Mathf.Infinity;
-        [SerializeField] float lastLapTime;
-        [SerializeField] float currentLapTime;
-        [SerializeField] int currentLap;
+        float bestLapTime = Mathf.Infinity;
+        float lastLapTime;
+        float currentLapTime;
+        int currentLap;
+        int maxLaps;
 
-        [Header("Track time")]
-        [SerializeField] float bestTrackTime;
-        [SerializeField] float lastTrackTime;
-        [SerializeField] float currentTrackTime;
+        float bestTrackTime; 
+        float lastTrackTime;
+        float currentTrackTime;
 
-        // [SerializeField] public TMP_Text timeLabel;
+        public HudController hud;
 
         float lapTimer;
         float trackTimer;
         public Checkpoint[] checkpoints;
         int checkpointIndex;
 
+        int checkpointLayer = 8;
+
         Checkpoint _last;
         Checkpoint lastCheckpoint {
             get => _last;
             set {
-                if (value.isStartStop)
+                if (value.isStartStop && _last != null)
                     StartFinish();
                 _last = value;
             }
@@ -44,48 +44,74 @@ namespace _Code.TrackLogic{
             }
         }
 
-        int checkpointLayer = 8;
-
-        public void Init(){
+        public void Init(int max){
+            maxLaps = max;
             nextCheckpoint = checkpoints[checkpointIndex];
-            lastCheckpoint = checkpoints[checkpointIndex];
+        }
+
+        public void StartRace(){
+            trackTimer = Time.time;
+            StartLap();
         }
 
         void Update(){
             currentLapTime = lapTimer > 0 ? Time.time - lapTimer : 0;
-            // timeLabel.text = $"{currentLapTime:F3} sec";
+            currentTrackTime = trackTimer > 0 ? Time.time - trackTimer : 0;
+            hud.UpdateTimers(currentLapTime, currentTrackTime);
         }
 
         void StartLap(){
             currentLap++;
+            hud.UpdateLapIndicator(currentLap);
             lapTimer = Time.time;
         }
 
         void EndLap(){
             lastLapTime = Time.time - lapTimer;
             bestLapTime = Mathf.Min(lastLapTime, bestLapTime);
-            Debug.Log($"last lap time: {lastLapTime:F4}");
-            Debug.Log($" best lap time: {bestLapTime:F4}");
+            hud.UpdateBestAndLastTime(bestLapTime,lastLapTime);
         }
 
-        void OnTriggerEnter(Collider other){
+        bool ContinueRace(){
+            if (currentLap != maxLaps)
+                return true;
+            FinishRace();
+            return false;
+        }
+
+        void FinishRace(){
+            hud.ShowWinMessage(currentTrackTime);
+            lapTimer = 0;
+            trackTimer = 0;
+            GameManager.Instance.DisablePlayerInput();
+            StartCoroutine(BackToMenu());
+        }
+
+        IEnumerator BackToMenu(){
+            yield return new WaitForSeconds(1.5f);
+                GameManager.Instance.LoadMenu();
+        }
+
+        void OnTriggerExit(Collider other){
             if (other.gameObject.layer != checkpointLayer)
                 return;
 
             if (other.gameObject == nextCheckpoint.gameObject) {
+                hud.HideMissedCheckpointMessage();
                 lastCheckpoint = other.GetComponent<Checkpoint>();
                 checkpointIndex = checkpoints.Length - 1 == checkpointIndex ? 0 : checkpointIndex + 1;
+                Debug.Log(checkpointIndex);
                 nextCheckpoint = checkpoints[checkpointIndex];
             }
-            else if (other.gameObject != lastCheckpoint.gameObject) {
-                // Debug.Log("you mise checkpoint");
+            else if (other.gameObject != lastCheckpoint?.gameObject) {
+                hud.ShowMissedCheckpointMessage();
             }
         }
 
         void StartFinish(){
-            Debug.Log("startFinish");
             EndLap();
-            StartLap();
+            if (ContinueRace())
+                StartLap();
         }
     }
 }

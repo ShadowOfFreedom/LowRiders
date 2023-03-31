@@ -1,5 +1,6 @@
 using _Code;
 using _Code.CarLogic;
+using _Code.UiLogic;
 using UnityEngine;
 
 public class Car : MonoBehaviour{
@@ -11,6 +12,8 @@ public class Car : MonoBehaviour{
     [SerializeField] float motorTorque = 1500f;
     [SerializeField] float maxAngle = 20f;
     [SerializeField] Rigidbody rb;
+
+    public HudController hud;
 
     void Awake(){
         gameManager = GameManager.Instance;
@@ -28,6 +31,7 @@ public class Car : MonoBehaviour{
             wheel.SteerAngle = steering * maxAngle;
             wheel.Acceleration = acceleration * motorTorque;
         }
+        hud.UpdateSpeedText(rb.velocity.magnitude * 3.6f);
     }
 
     public void ResetCarMovement(){
