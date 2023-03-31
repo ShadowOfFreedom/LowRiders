@@ -1,35 +1,41 @@
-using _Code;
-using _Code.CarLogic;
+using _Code.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour{
-    static GameManager instance;
-    public static GameManager Instance => instance;
+namespace _Code{
+    public class GameManager : MonoBehaviour{
+        const string MainScn = "scn_main";
 
-    public PlayerInput input;
-    DefaultInputActions uiInput;
+        static GameManager _instance;
+        public static GameManager Instance => _instance;
 
-    [SerializeField] Cars cars;
-    [SerializeField] Tracks tracks;
+        public PlayerInput Input;
+        DefaultInputActions _uiInput;
 
-    void Awake(){
-        if (instance == null)
-            instance = this;
-        input ??= new PlayerInput();
-        uiInput ??= new DefaultInputActions();
-        DontDestroyOnLoad(this);
-    }
+        [SerializeField] Cars cars;
+        [SerializeField] Tracks tracks;
 
-    public void InitInput(){
-        input.Player.Enable();
-    }
+        void Awake(){
+            if (_instance == null)
+                _instance = this;
+            Input ??= new PlayerInput();
+            _uiInput ??= new DefaultInputActions();
+            DontDestroyOnLoad(this);
+        }
 
-    public void StartNewGame(int carIndex, int trackIndex){
-        Player.Instance.selectedCar = cars.carsDictionary[carIndex];
-        var selectedTrack = tracks.tracksDictionary[trackIndex];
+        public void EnablePlayerInput() => Input.Player.Enable();
 
-        SceneManager.LoadScene(selectedTrack.name, LoadSceneMode.Single);
+        public void DisablePlayerInput() => Input.Player.Disable();
+
+        public void StartNewGame(int carIndex, int trackIndex){
+            Player.Instance.selectedCar = cars.carsDictionary[carIndex];
+            Player.Instance.selectedTrack = tracks.tracksDictionary[trackIndex];
+
+            SceneManager.LoadScene(Player.Instance.selectedTrack, LoadSceneMode.Single);
+        }
+
+        public void LoadMenu()
+            => SceneManager.LoadScene(MainScn, LoadSceneMode.Single);
     }
 }

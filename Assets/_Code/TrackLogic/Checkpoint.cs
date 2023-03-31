@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace _Code.TrackLogic{
+    public class Checkpoint : MonoBehaviour{
+        [SerializeField] BoxCollider checkpointCollider;
+        [SerializeField] MeshRenderer mesh;
+        public bool isStartStop;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Show(){
+            if (mesh != null)
+                mesh.enabled = true;
+        }
+
+        public void Hide(){
+            if (mesh != null)
+                mesh.enabled = false;
+        }
     }
 }

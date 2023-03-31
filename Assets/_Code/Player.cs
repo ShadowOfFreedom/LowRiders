@@ -1,15 +1,20 @@
-﻿using Cinemachine;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Code{
     public class Player : MonoBehaviour{
-        [SerializeField] public GameObject selectedCar;
+        Car _car;
 
-        static Player instance;
-        public static Player Instance => instance;
+        public GameObject selectedCar {
+            get => _car.gameObject;
+            set => _car = value.GetComponent<Car>();
+        }
+        [SerializeField] public string selectedTrack;
+
+        static Player _instance;
+        public static Player Instance => _instance;
         void Awake(){
-            if (instance == null)
-                instance = this;
+            if (_instance == null)
+                _instance = this;
             DontDestroyOnLoad(this);
         }
     }

@@ -1,3 +1,4 @@
+using _Code;
 using _Code.CarLogic;
 using UnityEngine;
 
@@ -13,8 +14,8 @@ public class Car : MonoBehaviour{
 
     void Awake(){
         gameManager = GameManager.Instance;
-        input = gameManager.input;
-        gameManager.InitInput();
+        input = gameManager.Input;
+        gameManager.EnablePlayerInput();
         rb.centerOfMass = centerOfMass.localPosition;
     }
 
@@ -27,5 +28,13 @@ public class Car : MonoBehaviour{
             wheel.SteerAngle = steering * maxAngle;
             wheel.Acceleration = acceleration * motorTorque;
         }
+    }
+
+    public void ResetCarMovement(){
+        foreach (var wheel in wheels)
+            wheel.Stop();
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        rb.isKinematic = false;
     }
 }

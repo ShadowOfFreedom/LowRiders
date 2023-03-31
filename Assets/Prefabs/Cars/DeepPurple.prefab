@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 3037105170758586408}
   - component: {fileID: 5968257666432332332}
   - component: {fileID: 854294002897109156}
+  - component: {fileID: 9049476801844472642}
   m_Layer: 6
   m_Name: DeepPurple
   m_TagString: Untagged
@@ -735,7 +736,7 @@ Transform:
   - {fileID: 5665579438165578819}
   - {fileID: 7957348990589689905}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7890016183338737240
 MeshFilter:
@@ -835,6 +836,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9049476801844472642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728263514784053119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912cd764f244170948d570ec9ea293f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestLapTime: Infinity
+  lastLapTime: 0
+  currentLapTime: 0
+  currentLap: 0
+  bestTrackTime: 0
+  lastTrackTime: 0
+  currentTrackTime: 0
+  checkpoints: []
 --- !u!1 &6926004879938300029
 GameObject:
   m_ObjectHideFlags: 0

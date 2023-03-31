@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 7879860222168489152}
   - component: {fileID: 547594805782094339}
   - component: {fileID: 6453637381870581831}
+  - component: {fileID: 3080399868434341991}
   m_Layer: 0
   m_Name: Red
   m_TagString: Untagged
@@ -759,7 +760,7 @@ Transform:
   - {fileID: 5862205001028664603}
   - {fileID: 1008633889029301452}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3688906242616984653
 MeshFilter:
@@ -859,6 +860,26 @@ MonoBehaviour:
   motorTorque: 900
   maxAngle: 20
   rb: {fileID: 547594805782094339}
+--- !u!114 &3080399868434341991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144704438732526560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912cd764f244170948d570ec9ea293f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestLapTime: Infinity
+  lastLapTime: 0
+  currentLapTime: 0
+  currentLap: 0
+  bestTrackTime: 0
+  lastTrackTime: 0
+  currentTrackTime: 0
+  checkpoints: []
 --- !u!1 &7926174994983018042
 GameObject:
   m_ObjectHideFlags: 0

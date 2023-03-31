@@ -635,6 +635,7 @@ GameObject:
   - component: {fileID: 7730919182818867989}
   - component: {fileID: 507118010493912236}
   - component: {fileID: 2358153628082891466}
+  - component: {fileID: 2070828545048701736}
   m_Layer: 6
   m_Name: Been
   m_TagString: Untagged
@@ -758,6 +759,26 @@ MonoBehaviour:
   motorTorque: 1200
   maxAngle: 20
   rb: {fileID: 507118010493912236}
+--- !u!114 &2070828545048701736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525838817301865039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912cd764f244170948d570ec9ea293f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestLapTime: Infinity
+  lastLapTime: 0
+  currentLapTime: 0
+  currentLap: 0
+  bestTrackTime: 0
+  lastTrackTime: 0
+  currentTrackTime: 0
+  checkpoints: []
 --- !u!1 &6488744523448586401
 GameObject:
   m_ObjectHideFlags: 0

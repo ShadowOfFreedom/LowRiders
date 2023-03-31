@@ -24,5 +24,11 @@ namespace _Code.CarLogic{
             if (isPower)
                 wheelCollider.motorTorque = Acceleration;
         }
+
+        public void Stop(){
+            wheelCollider.motorTorque = 0;
+            wheelCollider.steerAngle = 0;
+            wheelCollider.rotationSpeed = 0;
+        }
     }
 }

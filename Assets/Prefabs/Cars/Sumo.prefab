@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 8004431814330874060}
   - component: {fileID: 2153477252187289620}
   - component: {fileID: 4888460055344285817}
+  - component: {fileID: 1733956311303514054}
   m_Layer: 0
   m_Name: Sumo
   m_TagString: Untagged
@@ -237,7 +238,7 @@ Transform:
   - {fileID: 286170484826225242}
   - {fileID: 7814640486486510678}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &387079980756720368
 MeshFilter:
@@ -337,6 +338,26 @@ MonoBehaviour:
   motorTorque: 1200
   maxAngle: 15
   rb: {fileID: 2153477252187289620}
+--- !u!114 &1733956311303514054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916957438955530009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1912cd764f244170948d570ec9ea293f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestLapTime: Infinity
+  lestLapTime: 0
+  currentLapTime: 0
+  currentLap: 0
+  bestTrackTime: 0
+  lastTrackTime: 0
+  currentTrackTime: 0
+  checkpoints: []
 --- !u!1 &4241293524946746308
 GameObject:
   m_ObjectHideFlags: 0
