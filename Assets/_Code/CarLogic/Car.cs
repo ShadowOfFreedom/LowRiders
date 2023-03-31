@@ -1,6 +1,7 @@
 using _Code;
 using _Code.CarLogic;
 using _Code.UiLogic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Car : MonoBehaviour{
@@ -12,6 +13,7 @@ public class Car : MonoBehaviour{
     [SerializeField] float motorTorque = 1500f;
     [SerializeField] float maxAngle = 20f;
     [SerializeField] Rigidbody rb;
+    [SerializeField] AudioSource audio;
 
     public HudController hud;
 
@@ -31,6 +33,10 @@ public class Car : MonoBehaviour{
             wheel.SteerAngle = steering * maxAngle;
             wheel.Acceleration = acceleration * motorTorque;
         }
+
+        var speed = rb.velocity.magnitude * 3.6f;
+        var pitch = math.remap(0f, 100f, 0.8f, 1.3f, speed);
+        audio.pitch = pitch;
         hud.UpdateSpeedText(rb.velocity.magnitude * 3.6f);
     }
 

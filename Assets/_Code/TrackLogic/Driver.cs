@@ -84,12 +84,6 @@ namespace _Code.TrackLogic{
             lapTimer = 0;
             trackTimer = 0;
             GameManager.Instance.DisablePlayerInput();
-            StartCoroutine(BackToMenu());
-        }
-
-        IEnumerator BackToMenu(){
-            yield return new WaitForSeconds(1.5f);
-                GameManager.Instance.LoadMenu();
         }
 
         void OnTriggerExit(Collider other){

@@ -1,4 +1,5 @@
 using _Code;
+using _Code.Leaderboard;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -25,12 +26,14 @@ public class MainMenuController : MonoBehaviour{
     void OnEnable(){
         newGameButton.onClick.AddListener(ShowNewGameMenu);
         leaderboardButton.onClick.AddListener(ShowLeaderboard);
+        exitLeaderboardButton.onClick.AddListener(ExitLeaderboard);
         exitButton.onClick.AddListener(ExitGame);
     }
 
     void OnDisable(){
         newGameButton.onClick.RemoveListener(ShowNewGameMenu);
         leaderboardButton.onClick.RemoveListener(ShowLeaderboard);
+        exitLeaderboardButton.onClick.RemoveListener(ExitLeaderboard);
         exitButton.onClick.RemoveListener(ExitGame);
     }
 
@@ -60,7 +63,13 @@ public class MainMenuController : MonoBehaviour{
         leaderboardCanvas.SetActive(true);
     }
 
+    void ExitLeaderboard(){
+        mainMenuCanvas.SetActive(true);
+        leaderboardCanvas.SetActive(false);
+    }
+
     void ExitGame(){
+        GameManager.Instance.leaderboard.Save();
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #else

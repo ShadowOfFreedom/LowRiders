@@ -1,4 +1,5 @@
 using _Code.Data;
+using _Code.Leaderboard;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -16,11 +17,18 @@ namespace _Code{
         [SerializeField] Cars cars;
         [SerializeField] Tracks tracks;
 
+        public int trackIndex;
+        public LeaderboardManager leaderboard;
         void Awake(){
             if (_instance == null)
-                _instance = this;
+                Init();
+        }
+
+        void Init(){
+            _instance = this;
             Input ??= new PlayerInput();
             _uiInput ??= new DefaultInputActions();
+            leaderboard = new LeaderboardManager();
             DontDestroyOnLoad(this);
         }
 
@@ -29,6 +37,7 @@ namespace _Code{
         public void DisablePlayerInput() => Input.Player.Disable();
 
         public void StartNewGame(int carIndex, int trackIndex){
+            this.trackIndex = trackIndex;
             Player.Instance.selectedCar = cars.carsDictionary[carIndex];
             Player.Instance.selectedTrack = tracks.tracksDictionary[trackIndex];
 

@@ -2649,6 +2649,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3691797617831291997, guid: f6c4985d4583d5e4fb1324d4db44ef1e,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691797617831291997, guid: f6c4985d4583d5e4fb1324d4db44ef1e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7887bb4210a5e5d41b3d781715d14af1, type: 3}
     - target: {fileID: 4383457097033866861, guid: f6c4985d4583d5e4fb1324d4db44ef1e,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -2659,6 +2669,11 @@ PrefabInstance:
       propertyPath: hud
       value: 
       objectReference: {fileID: 238502631}
+    - target: {fileID: 8833977644825420725, guid: f6c4985d4583d5e4fb1324d4db44ef1e,
+        type: 3}
+      propertyPath: laps
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8833977644825420725, guid: f6c4985d4583d5e4fb1324d4db44ef1e,
         type: 3}
       propertyPath: checkpoints.Array.size
